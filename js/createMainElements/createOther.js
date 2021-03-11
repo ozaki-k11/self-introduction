@@ -1,7 +1,7 @@
 import {createTh, createTd} from "./createProfiles.js";
 
 // 資格一覧を作る
-const createQualifications = (qualifications) => {
+const createQualifications = (qualifications, element) => {
     // 資格データがなかった場合何もしない
     if(qualifications === void 0) {
         console.log("このユーザーはqualificationsListDataに情報を追加していません。");
@@ -26,11 +26,11 @@ const createQualifications = (qualifications) => {
         table.appendChild(tr);
     });
     section.appendChild(table);
-    return section
+    element.appendChild(section);
 }
 
 // 学歴一覧を作る
-const createStudyHistory = (studyHistory) => {
+const createStudyHistory = (studyHistory, element) => {
     // 学歴データがなかった場合何もしない
     if(studyHistory === void 0) {
         console.log("このユーザーはstudyHistoryListDataに情報を追加していません。");
@@ -38,11 +38,12 @@ const createStudyHistory = (studyHistory) => {
     }
     const dispName = "学歴";
     const key = "school";
-    return createHistorySections(studyHistory, dispName, key);
+    const section = createHistorySections(studyHistory, dispName, key);
+    element.appendChild(section);
 }
 
 // 職歴一覧を作る
-const createWorksHistory = (worksHistory) => {
+const createWorksHistory = (worksHistory, element) => {
     // 職歴データがなかった場合何もしない
     if(worksHistory === void 0) {
         console.log("このユーザーはworksHistoryListDataに情報を追加していません。");
@@ -50,7 +51,8 @@ const createWorksHistory = (worksHistory) => {
     }
     const dispName = "職歴";
     const key = "workPlace";
-    return createHistorySections(worksHistory, dispName, key);
+    const section = createHistorySections(worksHistory, dispName, key);
+    element.appendChild(section);
 }
 
 // 学歴、職歴一覧を作る
@@ -86,12 +88,9 @@ const createHistorySections = (history, dispName, key) => {
 // mainエリアのOther一覧を生成する
 const createOther = (qualifications, studyHistory, worksHistory, otherElement) => {
 
-    const qualificationsElement = createQualifications(qualifications);
-    otherElement.appendChild(qualificationsElement);
-    const studyHistoryElement = createStudyHistory(studyHistory);
-    otherElement.appendChild(studyHistoryElement);
-    const worksHistoryElement = createWorksHistory(worksHistory);
-    otherElement.appendChild(worksHistoryElement);
+    createQualifications(qualifications, otherElement);
+    createStudyHistory(studyHistory, otherElement);
+    createWorksHistory(worksHistory, otherElement);
     
 }
 
