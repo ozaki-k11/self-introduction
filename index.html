@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/js/uikit-icons.min.js"></script>
+    <title>Document</title>
+</head>
+<body uk-grid>
+
+    <!-- <div id="inquiry"></div>
+    <div id="index"></div> -->
+
+    <header id="header" class="uk-width-1-1">
+        <nav class="" uk-sticky>
+            <ul class="uk-flex-center uk-background-default" uk-tab="connect: #component-tab-flex-center; animation: uk-animation-fade">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Likes</a></li>
+                <li><a href="#">Contents</a></li>
+                <li><a href="#">other</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main" class="uk-width-1-1 uk-width-3-4@s uk-width-2-5@m uk-align-center">
+        <ul id="component-tab-flex-center" class="uk-switcher uk-margin-left uk-margin-right">
+            <li><article id="Profile"></article></li>
+            <li><article id="Likes"></article></li>
+            <li><article id="Contents"></article></li>
+            <li><article id="Other"></article></li>
+        </ul>
+        
+        
+        
+    </main>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/index.js" type="module"></script>
+</body>
+</html>
